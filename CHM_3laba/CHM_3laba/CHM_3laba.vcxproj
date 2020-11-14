@@ -140,10 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="matrix.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="matrix.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="di.txt" />
@@ -152,6 +148,9 @@
     <Text Include="jg.txt" />
     <Text Include="param.txt" />
     <Text Include="vector.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
