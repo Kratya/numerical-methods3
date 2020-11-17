@@ -123,7 +123,8 @@ int ALG<mytype>::LOSSolverSpecifiDiag1()
 		p[i] /= diag[i];
 	}
 	mytype normb = sqrt(scal(b, b));
-	for (mytype sr = sqrt(scal(r, r)); sr / normb > eps && count <= maxiter; ++count)
+	mytype sr = sqrt(scal(r, r));
+	while (sr / normb > eps && count <= maxiter)
 	{
 		mytype pp = scal(p, p);
 		mytype ak = scal(p, r) / pp;
@@ -152,6 +153,7 @@ int ALG<mytype>::LOSSolverSpecifiDiag1()
 			r[i] *= diag[i];
 		}
 		sr = sqrt(scal(r, r));
+		++count;
 		//printf_s("%d: %.2lf", count, sr);
 	}
 	return count;
@@ -205,7 +207,7 @@ int ALG<mytype>::LOSSolverSpecifiDiag2()
 	}
 	return count;
 }
-
+/*
 template <typename mytype>
 int ALG<mytype>::LOSSolverSpecifiDiag3()
 {
@@ -253,7 +255,7 @@ int ALG<mytype>::LOSSolverSpecifiDiag3()
 		//printf_s("%d: %.2lf", count, sr);
 	}
 	return count;
-}
+}*/
 
 template <typename mytype>
 void ALG<mytype>::WriteSolveInFile(const char* fileName)
